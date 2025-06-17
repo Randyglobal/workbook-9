@@ -31,4 +31,14 @@ public class SimpleProductDao implements Displayable {
         return new ArrayList<>(products);
     }
 
+//    Search
+    public Product getSearchTerm(int id){
+        for (Product product: products){
+            if (product.getProductId() == id){
+                return product;
+            }
+        }
+        return null;
+    }
+
 }

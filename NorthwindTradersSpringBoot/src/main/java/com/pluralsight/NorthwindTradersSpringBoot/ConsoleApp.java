@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 //making a bean
 @Component
@@ -20,12 +21,12 @@ public class ConsoleApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Product laptop = new Product("Laptop", "Electronics", 1200.00);
+        Product laptop = new Product(1,"Laptop", "Electronics", 1200.00);
         productDao.add(laptop);
-        Product mouse = new Product("Mouse", "Electronics", 25.50);
+        Product mouse = new Product(2,"Mouse", "Electronics", 25.50);
         productDao.add(mouse);
 
-        Product keyboard = new Product("Mechanical Keyboard", "Peripherals", 150.00);
+        Product keyboard = new Product(3,"Mechanical Keyboard", "Peripherals", 150.00);
         productDao.add(keyboard);
 
         System.out.println("\n--- Products in SimpleProductDao ---");
@@ -33,5 +34,17 @@ public class ConsoleApp implements CommandLineRunner {
             System.out.println(p.getName() + " - " + p.getCategory() + " - $" + String.format("%.2f", p.getPrice()));
         }
         System.out.println("------------------------------------");
+
+        System.out.println("\n--- Searching for Products by ID ---");
+        Product foundProduct1 = productDao.getSearchTerm(1);
+        if (foundProduct1 != null) {
+            System.out.println("Found Product with ID 1: " + foundProduct1.getName());
+        } else {
+            System.out.println("Product with ID 1 not found.");
+        }
+    }
+    public static void searchTerm(){
+
+
     }
 }
