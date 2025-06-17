@@ -42,6 +42,17 @@ public class ConsoleApp implements CommandLineRunner {
         } else {
             System.out.println("Product with ID 1 not found.");
         }
+        Product deleteProduct1 = productDao.deleteProduct(2);
+        if (deleteProduct1 != null) {
+            System.out.println("Deleted Product with ID 2: " + deleteProduct1.getName());
+            System.out.println("\n--- Products in SimpleProductDao ---");
+            for (Product p : productDao.getAll()) {
+                System.out.println(p.getName() + " - " + p.getCategory() + " - $" + String.format("%.2f", p.getPrice()));
+            }
+            System.out.println("------------------------------------");
+        } else {
+            System.out.println("Product with ID 1 not found.");
+        }
     }
     public static void searchTerm(){
 
