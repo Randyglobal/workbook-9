@@ -1,7 +1,6 @@
 package com.pluralsight.NorthwindTradersSpringBoot.repository;
 
 import com.pluralsight.NorthwindTradersSpringBoot.model.Product;
-import com.pluralsight.NorthwindTradersSpringBoot.ui.Displayable;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -32,7 +31,22 @@ public class SimpleProductDao implements Displayable {
         return new ArrayList<>(products);
     }
 
-//    Search
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public void update(int id, Product updateTerm) {
+
+    }
+
+    @Override
+    public List<Product> search(String searchTerm) {
+        return List.of();
+    }
+
+    //    Search
     public Product getSearchTerm(int id){
         for (Product product: products){
             if (product.getProductId() == id){
@@ -44,6 +58,7 @@ public class SimpleProductDao implements Displayable {
 
 //    delete
 public Product deleteProduct(int id){
+//        creating an iterator interface and returning an instance of a class that implements the Iterator<Product>
     Iterator<Product> iterator = products.iterator();
 
     while (iterator.hasNext()){

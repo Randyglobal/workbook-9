@@ -1,5 +1,6 @@
 package com.pluralsight.NorthwindTradersSpringBoot.model;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Product {
@@ -8,11 +9,10 @@ public class Product {
     private String category;
     private double price;
 
-    public Product(String name, String category, double price) {
-        this.name = name;
-        this.category = category;
-        this.price = price;
+    public Product() {
+
     }
+
 
     public Product(int productId, String name, String category, double price) {
         this.productId = productId;
@@ -20,6 +20,13 @@ public class Product {
         this.category = category;
         this.price = price;
     }
+
+    public Product(int productId, String name, double price) {
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+    }
+
 
     public int getProductId() {
         return productId;
